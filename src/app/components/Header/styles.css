@@ -1,0 +1,27 @@
+.logo {
+	color: #FFFFFF;
+	font-family: "Open Sans Light";
+	font-size: 14px;
+	letter-spacing: 0.2px;
+	line-height: 19px;
+}
+
+.quote-section {
+  position: absolute;
+  top: 40%;
+  left: 60px;
+
+  color: #FFFFFF;
+  font-family: 'Open Sans';
+  font-size: 40px;
+  width: 508px;
+  text-align: left;
+}
+
+.right-quotes {
+  text-align: right;
+}
+
+.quotes {
+  margin: 32px 0;
+}
