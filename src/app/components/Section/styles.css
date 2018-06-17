@@ -1,0 +1,17 @@
+.section_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section_header-border {
+  width: 35px;
+  border-top-width: 3px;
+  border-top-color: #F5A623;
+  border-top-style: solid;
+}
+
+.section_content {
+  display: flex;
+  margin: 64px;
+}

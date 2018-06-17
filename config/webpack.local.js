@@ -1,6 +1,6 @@
 const path = require('path');
 const webpackMerge = require('webpack-merge');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const commonConfig = require('./webpack.common.js');
 const proxyConf = require('../proxy.conf.json');
 
@@ -14,7 +14,10 @@ module.exports = webpackMerge(commonConfig, {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    })
   ],
 
   devServer: {

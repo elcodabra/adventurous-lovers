@@ -1,18 +1,12 @@
 import React from 'react';
-import WelcomeLogo from '../../../assets/img/WelcomeToSite.jpg';
+import Section from '../Section';
 
-const Home = () => {
-
-  const title = 'react-starter-app';
-
-  return (
-    <div>
-      <h1>
-        Welcome to {title}!
-      </h1>
-      <img src={WelcomeLogo} />
-    </div>
-  )
-}
+const Home = () => (
+  <div>
+    <Section title={'Для мозга'} />
+    <Section title={'Для души'} />
+    <Section title={'Для тела'} />
+  </div>
+);
 
 export default Home;

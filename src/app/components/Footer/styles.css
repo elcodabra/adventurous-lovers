@@ -1,0 +1,28 @@
+footer {
+  	background-color: #0D0C0C;
+    padding: 70px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icon {
+  margin-right: 66px;
+}
+
+.social-icon:last-child {
+  margin-right: 0;
+}
+
+.logo-footer-name {
+  margin-top: 57px;
+  text-align: center;
+  color: #FFFFFF;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  line-height: 19px;
+}

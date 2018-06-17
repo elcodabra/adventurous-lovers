@@ -2,12 +2,9 @@ const path = require('path');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const { NamedModulesPlugin } = require('webpack');
-const { CommonsChunkPlugin } = require('webpack').optimize;
-
-const nodeModules = path.resolve(__dirname, '../node_modules');
 const entryPoints = ['inline','polyfills','sw-register','styles','vendor','main'];
 
 module.exports = {
@@ -18,12 +15,13 @@ module.exports = {
     ],
     styles: [
       './src/styles.css',
-      './src/assets/css/fonts.css',
+      // './src/assets/css/fonts.css',
     ]
   },
 
   resolve: {
-    extensions: ['.jsx','.js'],
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    extensions: ['.jsx','.js','.png'],
   },
 
   module: {
@@ -47,33 +45,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: [
-          path.resolve(__dirname, '../src/app')
-        ],
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: {
-            loader: 'css-loader',
-            options: {
-              sourceMap: false
-            }
-          }
-        })
-      },
-      {
-        test: /\.css$/,
-        include: [
-          path.resolve(__dirname, '../src/app')
-        ],
-        use: [
-          'to-string-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: false
-            }
-          }
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
@@ -89,7 +61,7 @@ module.exports = {
       hash: false,
       inject: true,
       compile: true,
-      favicon: './src/favicon.ico',
+      // favicon: './src/favicon.ico',
       minify: {
         removeAttributeQuotes: true
       },
@@ -110,23 +82,7 @@ module.exports = {
         else {
             return 0;
         }
-    }
-    }),
-    new CommonsChunkPlugin({
-      name: [
-        'inline'
-      ],
-      minChunks: null
-    }),
-    new CommonsChunkPlugin({
-      name: [
-        'vendor'
-      ],
-      minChunks: (module) => module.resource &&
-                module.resource.startsWith(nodeModules),
-      chunks: [
-        'main'
-      ]
+      }
     }),
     new NamedModulesPlugin({}),
   ],
