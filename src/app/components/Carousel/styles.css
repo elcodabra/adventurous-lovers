@@ -1,5 +1,10 @@
 .carousel {
   display: flex;
+  align-items: center;
+}
+
+.carousel_content {
+  display: flex;
   overflow-x: scroll;
 }
 
@@ -9,4 +14,12 @@
 
 .carousel-img:last-child {
   margin-right: 0;
+}
+
+.arrow_left {
+  margin-right: 60px;
+}
+
+.arrow_right {
+  margin-left: 60px;
 }
