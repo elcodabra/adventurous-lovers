@@ -11,15 +11,17 @@ import './styles.css';
 // youtube for carousel - http://react-responsive-carousel.js.org/storybook/?selectedKind=Carousel&selectedStory=youtube&full=0&down=1&left=1&panelRight=0&downPanel=kadirahq%2Fstorybook-addon-actions%2Factions-panel
 const Header = () => (
   <header>
+    <div className='logo'></div>
     <Carousel
       showArrows={false}
       showThumbs={false}
       showStatus={false}
       infiniteLoop={true}
-      autoPlay={true}
+      // autoPlay={true}
     >
       <div>
         <img src="public/background-img.jpg" />
+        <h2 className='logo'>Любители Приключений</h2>
         <div className='quote-section'>
           <div className='left-quotes quotes'>
             <SVG src={LeftQuotes} />
@@ -29,6 +31,7 @@ const Header = () => (
             <SVG src={RightQuotes} />
           </div>
         </div>
+        <input className='search' type='text' placeholder='Поиск...' />
       </div>
       <div>
         {/*<img src="public/background-img.jpg" />*/}

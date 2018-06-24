@@ -1,9 +1,9 @@
 .logo {
+  position: absolute;
+  left: 0;
+  top: 22px;
+
 	color: #FFFFFF;
-	font-family: "Open Sans Light";
-	font-size: 14px;
-	letter-spacing: 0.2px;
-	line-height: 19px;
 }
 
 .quote-section {
@@ -24,4 +24,17 @@
 
 .quotes {
   margin: 32px 0;
+}
+
+.search {
+  position: absolute;
+  right: 60px;
+  top: 60px;
+
+  height: 32px;
+  width: 262px;
+  border: 1px solid #FFFFFF;
+  border-radius: 17.5px;
+  background: transparent;
+  color:#FFFFFF;
 }
