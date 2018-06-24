@@ -1,0 +1,12 @@
+.carousel {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.carousel_img {
+  margin-right: 64px;
+}
+
+.carousel-img:last-child {
+  margin-right: 0;
+}
