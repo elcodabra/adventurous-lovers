@@ -1,5 +1,4 @@
 import React from 'react';
-import Lightbox from 'react-images';
 import Carousel from '../Carousel';
 
 import './styles.css';
@@ -14,13 +13,6 @@ const Section = ({title, images}) => (
     {images && images.length > 0 ?
       <div className='section_content'>
           <Carousel images={images} />
-          <Lightbox
-            images = {images}
-            isOpen={false}
-            onClickPrev={() => {}}
-            onClickNext={() => {}}
-            onClose={() => {}}
-          />
       </div>
       :
       "Пока еще нет картинок"
