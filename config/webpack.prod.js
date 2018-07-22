@@ -2,7 +2,6 @@ const path = require('path');
 const webpackMerge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { DefinePlugin, LoaderOptionsPlugin, NoEmitOnErrorsPlugin } = require('webpack');
-const { UglifyJsPlugin } = require('webpack').optimize;
 const commonConfig = require('./webpack.common.js');
 
 const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
@@ -16,6 +15,18 @@ module.exports = webpackMerge(commonConfig, {
     chunkFilename: '[id].[hash].chunk.js'
   },
 
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  },
+
   plugins: [
     new NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('[name].[hash].css'),
@@ -24,18 +35,6 @@ module.exports = webpackMerge(commonConfig, {
         'ENV': JSON.stringify(ENV),
         'NODE_ENV': JSON.stringify(ENV)
       }
-    }),
-    new UglifyJsPlugin({
-      sourceMap: false,
-      mangle: {
-        keep_fnames: true
-      },
-      compress: {
-        warnings: false
-      },
-      output: {
-        comments: false
-      },
     }),
     new LoaderOptionsPlugin({
       htmlLoader: {

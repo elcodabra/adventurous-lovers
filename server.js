@@ -14,5 +14,5 @@ app.use('/', express.static(__dirname + '/dist'));
 
 // Start the app by listening on the default port
 app.listen(app.get('port'), function() {
-  console.log('Angular4 Starter App listening on port ' + app.get('port'));
+  console.log('Adventurous Lovers listening on port ' + app.get('port'));
 });
