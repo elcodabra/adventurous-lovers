@@ -3,16 +3,16 @@ import Carousel from '../Carousel';
 
 import './styles.css';
 
-const Section = ({title, images}) => (
+const Section = ({title, cards}) => (
   <div className='section'>
     <div className='section_header'>
       <h2>{title}</h2>
       <div className='section_header-border'></div>
     </div>
 
-    {images && images.length > 0 ?
+    {cards && cards.length > 0 ?
       <div className='section_content'>
-          <Carousel images={images} />
+          <Carousel cards={cards} />
       </div>
       :
       "Пока еще нет картинок"

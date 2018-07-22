@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
+import ReactPlayer from 'react-player'
 import SVG from 'react-inlinesvg';
+
 import LeftArrow from '../../../assets/img/left_arrow.svg';
 import RightArrow from '../../../assets/img/right_arrow.svg';
 import 'slick-carousel/slick/slick.css';
@@ -28,8 +30,8 @@ const PrevArrow = ({ className, style, onClick }) => (
 
 const settings = {
   dots: false,
-  infinite: true,
-  // lazyLoad: true,
+  infinite: false,
+  lazyLoad: true,
   speed: 500,
   slidesToShow: 3,
   slidesToScroll: 3,
@@ -37,18 +39,16 @@ const settings = {
   prevArrow: <PrevArrow />,
 };
 
-const Carousel = ({images}) => (
-  <div>
-    <Slider {...settings}>
-      {images && images.length > 0 &&
-        images.map((image, key) =>
-          <div key={key} className='image-section'>
-            <div style={{margin: '0 20px', height: '193px', backgroundImage: `url(${image.src})`}} />
-          </div>
-        )
-      }
-    </Slider>
-  </div>
+const Carousel = ({cards}) => (
+  <Slider {...settings}>
+    {cards.map((card, key) =>
+      <div key={key} className='card-section'>
+        <div style={{margin: '0 20px', height: '193px', backgroundImage: `url(${card.image})`, backgroundSize: 'cover'}}>
+          <ReactPlayer url={card.src} width='100%' height='100%'/>
+        </div>
+      </div>
+    )}
+  </Slider>
 );
 
 export default Carousel;
